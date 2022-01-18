@@ -133,6 +133,7 @@ struct dynsec__acl_default_access{
 extern struct dynsec__group *dynsec_anonymous_group;
 extern struct dynsec__acl_default_access default_access;
 extern char *g_config_file;
+extern bool allow_empty_passwords;
 
 /* ################################################################
  * #
