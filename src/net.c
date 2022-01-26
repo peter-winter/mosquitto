@@ -548,9 +548,9 @@ int net__load_certificates(struct mosquitto__listener *listener)
 }
 
 
-#if defined(WITH_TLS) && !defined(OPENSSL_NO_ENGINE)
 static int net__load_engine(struct mosquitto__listener *listener)
 {
+#if defined(WITH_TLS) && !defined(OPENSSL_NO_ENGINE)
 	ENGINE *engine = NULL;
 	UI_METHOD *ui_method;
 	EVP_PKEY *pkey;
@@ -601,9 +601,9 @@ static int net__load_engine(struct mosquitto__listener *listener)
 	}
 	ENGINE_free(engine); /* release the structural reference from ENGINE_by_id() */
 
+#endif
 	return MOSQ_ERR_SUCCESS;
 }
-#endif
 
 
 int net__tls_load_verify(struct mosquitto__listener *listener)
